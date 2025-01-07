@@ -1,0 +1,117 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block content %}
+
+    {% if message %}
+        <div id="message-box" class="message-box">
+            <p>{{ message }}</p>
+        </div>
+
+        <div class="audio-container">
+            <audio controls autoplay class="audio-player" >
+                <source src="/new_upload" type="audio/mpeg">
+                Your browser does not support the audio tag.
+            </audio>
+        </div>
+    {% endif %}
+
+
+    <div class="content">
+        <h2>Top Artists</h2>
+        <div class="grid">
+            <div class="card" onclick="submitArtistForm(event, 1)">
+                <form id="artistForm1" action="{% url 'search_results'%}" method="POST">
+                    {% csrf_token %}
+                    <img src="https://4kwallpapers.com/images/wallpapers/taylor-swift-american-singer-2048x2048-4705.jpg" alt="Playlist 1">
+                    <p>Taylor Swift</p>
+                    <input type="hidden" name="search_text" value="Taylor Swift">
+                </form>
+            </div>
+            <div class="card" onclick="submitArtistForm(event, 2)">
+                <form id="artistForm2" action="{% url 'search_results'%}" method="POST">
+                    {% csrf_token %}
+                    <img src="https://assets.teenvogue.com/photos/56f48c62060ad49149eec62a/1:1/w_2163,h_2163,c_limit/GettyImages-450407021.jpg" alt="Playlist 1">
+                    <p>One Direction</p>
+                    <input type="hidden" name="search_text" value="One Direction">
+                </form>
+            </div>
+            <div class="card" onclick="submitArtistForm(event, 3)">
+                <form id="artistForm3" action="{% url 'search_results'%}" method="POST">
+                    {% csrf_token %}
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYyNmVqLTPC74DKrQ4YC3OTcS0eCXwDotJHg&s" alt="Playlist 1">
+                    <p>Britney Spears</p>
+                    <input type="hidden" name="search_text" value="Britney Spears">
+                </form>
+            </div>
+            <div class="card" onclick="submitArtistForm(event, 4)">
+                <form id="artistForm4" action="{% url 'search_results'%}" method="POST">
+                    {% csrf_token %}
+                    <img src="https://rukminim2.flixcart.com/image/850/1000/jql8fbk0/poster/z/2/e/medium-pwl-shakira-shakira-wall-poster-13-19-inches-matte-finish-original-imaeg4y6jadhmaad.jpeg?q=90&crop=false" alt="Playlist 1">
+                    <p>Shakira</p>
+                    <input type="hidden" name="search_text" value="Shakira">
+                </form>
+            </div>
+            <div class="card" onclick="submitArtistForm(event, 5)">
+                <form id="artistForm5" action="{% url 'search_results'%}" method="POST">
+                    {% csrf_token %}
+                    <img src="https://pyxis.nymag.com/v1/imgs/6f7/087/1f31da1dd2e5cdbfa9731a1083441740e8-brunomars.1x.rsquare.w1400.jpg" alt="Playlist 1">
+                    <p>Bruno Mars</p>
+                    <input type="hidden" name="search_text" value="Bruno Mars">
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Top Genres</h2>
+        <div class="grid">
+            <div class="card" onclick="submitGenreForm(event, 1)">
+                <form id="genreForm1" action="{% url 'search_results'%}" method="POST">
+                    {% csrf_token %}
+                    <img src="https://musiknerd.org/wp-content/uploads/2024/10/pop-musik-1024x1024.jpg" alt="Playlist 1">
+                    <p>Pop</p>
+                    <input type="hidden" name="search_text" value="Pop">
+                </form>
+            </div>
+            <div class="card" onclick="submitGenreForm(event, 2)">
+                <form id="genreForm2" action="{% url 'search_results'%}" method="POST">
+                    {% csrf_token %}
+                    <img src="https://i.scdn.co/image/ab67616d0000b273548260cbdb078bfb1dca0681" alt="Playlist 1">
+                    <p>Rock</p>
+                    <input type="hidden" name="search_text" value="Rock">
+                </form>
+            </div>
+            <div class="card" onclick="submitGenreForm(event, 3)">
+                <form id="genreForm3" action="{% url 'search_results'%}" method="POST">
+                    {% csrf_token %}
+                    <img src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/e97a9312-a329-4043-8f4e-e04037e5b15e/29406cc8-9b21-4ce6-bb6f-ef1a97f38507.png" alt="Playlist 1">
+                    <p>Electronic</p>
+                    <input type="hidden" name="search_text" value="Electronic">
+                </form>
+            </div>
+            <div class="card" onclick="submitGenreForm(event, 4)">
+                <form id="genreForm4" action="{% url 'search_results'%}" method="POST">
+                    {% csrf_token %}
+                    <img src="https://stuntman.fi/cdn/shop/files/shutterstock_385901194.jpg?v=1724156877" alt="Playlist 1">
+                    <p>Metal</p>
+                    <input type="hidden" name="search_text" value="Metal">
+                </form>
+            </div>
+            <div class="card" onclick="submitGenreForm(event, 5)">
+                <form id="genreForm5" action="{% url 'search_results'%}" method="POST">
+                    {% csrf_token %}
+                    <img src="https://grizzlyrose.com/wp-content/uploads/2016/05/Birthplace-of-Country-Music-300x300.jpg" alt="Playlist 1">
+                    <p>Country</p>
+                    <input type="hidden" name="search_text" value="Country">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="loader">
+        <img src="{% static 'app/loader.gif' %}" alt="Loading...">
+    </div>
+
+
+{% endblock content %}

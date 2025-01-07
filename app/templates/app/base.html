@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streamify</title>
+    <link rel="stylesheet" href="{% static 'master.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <h1>Streamify</h1>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a class="nav-link" href="{% url 'home' %}">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <br>
+                <li>
+                    <a class="nav-link" href="{% url 'upload_song' %}">
+                        <i class="fas fa-upload"></i> Upload
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="playlist-section">
+            <ul>
+                <li>
+                    <form method="post" id="logout-form" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button class="btn-link">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+          
+        <header>
+            
+            <form style="width: 100%;" id="search-form" action="{% url 'search_results' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="search_text" placeholder="Search by artist or genre">
+                <a class="search_button" type="submit" onclick="submitSearchForm()">Search</a>
+            </form>
+
+            <div class="user-profile">
+                <img class="user-profile-image" src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Profile Picture">
+                <span>{{ user.username }}</span>
+            </div>
+        </header>
+        
+
+        <div style="padding-bottom: 75px;">
+            {% block content %}
+                <!--* Other HTML part here -->
+            {% endblock %}
+        </div>
+    </div>
+
+    <script src="{%static 'app/handler.js'%}" type="text/javascript"></script>
+</body>
+
+</html>

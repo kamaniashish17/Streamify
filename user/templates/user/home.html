@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streamify</title>
+    <link rel="stylesheet" href="{% static 'master.css' %}">
+</head>
+
+
+<body style="align-items: center;">
+
+    <div class="container">
+        <header>
+            <h1 class="logo">Streamify</h1>
+        </header>
+        <p>Where words end, music starts</p>
+        <br><br>
+        <main class="main-content-home">
+            <div class="buttons">
+                <a href="{% url 'login' %}" class="btn login-btn">Login</a>
+                <a href="{% url 'register' %}" class="btn register-btn">Register</a>
+            </div>
+        </main>
+    </div>
+    
+    <script src="{%static 'app/handler.js'%}" type="text/javascript"></script>
+</body>
+
+</html>

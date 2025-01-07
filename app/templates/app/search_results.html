@@ -1,0 +1,52 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block content %}
+
+
+<div class="content">
+    {% if search_text %}
+        <h2>Results for '{{ search_text }}'</h2>
+    {% elif track_name %}
+        <h2>Now playing... '{{ track_name }}'</h2>
+    {% endif %}
+    <div class="song-container">
+
+        {% for indexed_result in indexed_results %}
+
+        <div class="song-card">
+            {% if indexed_result.isCoverImageURL %}
+                <img src="{{ indexed_result.coverImage }}" alt="Song Album Cover" class="album-cover">
+            {% else %}
+                <img src="/image/{{ indexed_result.index }}" alt="Song Album Cover" class="album-cover">
+            {% endif %}
+            <div class="song-info">
+                <h3 class="song-title">{{ indexed_result.trackName }}</h3>
+                <p class="artist-name">{{ indexed_result.artistName }}</p>
+                <p class="album-name">{{ indexed_result.genreName }}</p>
+                <form action="{% url 'search_results'%}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="index" value="{{ indexed_result.index }}">
+                    <button type="submit" class="play-button">Play</button>
+                </form>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+
+{% if track_name %}
+<div class="audio-container">
+    <audio controls autoplay class="audio-player" >
+        <source src="/audio/{{ index }}" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+</div>
+{% endif %}
+
+<div id="loader">
+    <img src="{% static 'app/loader.gif' %}" alt="Loading...">
+</div>
+
+{% endblock content %}

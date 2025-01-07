@@ -1,0 +1,129 @@
+
+General Reset
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/1600x900/?music') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Popular Playlists Section */
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: #1d1d1d;
+    color: #fff;
+    margin-top: auto;
+}
+
+.form-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    color: #4f63a1;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6c757d;
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+}
+
+.form-control:focus {
+    border-color: #4f63a1;
+    box-shadow: 0 0 0 0.2rem rgba(79, 99, 161, 0.25);
+}
+
+.btn-upload {
+    background-color: #4f63a1;
+    color: white;
+    font-weight: 600;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-upload:hover {
+    background-color: #3e51a2;
+    cursor: pointer;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-footer a {
+    color: #4f63a1;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control-file {
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+}
